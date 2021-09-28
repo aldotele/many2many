@@ -21,7 +21,7 @@ class MovieActor(models.Model):  # bridge table
     actor = models.ForeignKey(Actor, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"actor {self.movie.pk} with movie {self.actor.pk}"
+        return f"actor {self.actor.pk} with movie {self.movie.pk}"
 
     class Meta:
         verbose_name_plural = "Movie_Actor_bridge"
