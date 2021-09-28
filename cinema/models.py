@@ -11,18 +11,7 @@ class Actor(models.Model):
 
 class Movie(models.Model):
     title = models.CharField(max_length=50)
+    actors = models.ManyToManyField(Actor)
 
     def __str__(self):
         return f"{self.title}"
-
-
-class MovieActor(models.Model):  # bridge table
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    actor = models.ForeignKey(Actor, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f"actor {self.actor.pk} with movie {self.movie.pk}"
-
-    class Meta:
-        verbose_name_plural = "Movie_Actor_bridge"
-        unique_together = ('movie', 'actor')
