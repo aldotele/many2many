@@ -1,0 +1,2 @@
+docker build --tag m2m-rest .
+docker run --publish 8000:8000 --name c_m2m-rest m2m-rest
