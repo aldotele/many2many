@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  m2m_app:
+    build: .
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    image: m2m_app:django
+    container_name: m2m_container
+    command: >
+      bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
