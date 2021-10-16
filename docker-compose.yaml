@@ -1,11 +1,11 @@
 version: "3.8"
 services:
-  m2m:
+  m2m_app:
     build: .
     volumes:
-      - .:/django
+      - .:/code
     ports:
       - 8000:8000
-    image: m2m:django
-    container_name: django_con
+    image: m2m_app:django
+    container_name: m2m_con
     command: python manage.py runserver 0.0.0.0:8000
