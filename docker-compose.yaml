@@ -8,4 +8,5 @@ services:
       - 8000:8000
     image: m2m_app:django
     container_name: m2m_con
-    command: python manage.py runserver 0.0.0.0:8000
+    command: >
+      bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
