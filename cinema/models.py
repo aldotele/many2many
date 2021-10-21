@@ -24,3 +24,11 @@ class Director(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
+
+class Plot(models.Model):
+    plot = models.TextField()
+    movie = models.OneToOneField(Movie, on_delete=models.CASCADE, unique=True)
+
+    def __str__(self):
+        return f"{self.movie}"

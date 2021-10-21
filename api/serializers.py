@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from cinema.models import Actor, Movie, Director
+from cinema.models import Actor, Movie, Director, Plot
 
 
 class ActorSerializer(serializers.ModelSerializer):
@@ -18,3 +18,13 @@ class DirectorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Director
         fields = ('first_name', 'last_name')
+
+
+class PlotSerializer(serializers.ModelSerializer):
+    movie = MovieSerializer(read_only=True)
+
+    class Meta:
+        model = Plot
+        fields = ('plot', 'movie')
+
+
