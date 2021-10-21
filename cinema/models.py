@@ -32,3 +32,11 @@ class Plot(models.Model):
 
     def __str__(self):
         return f"{self.movie}"
+
+
+class Genre(models.Model):
+    genre = models.CharField(max_length=30)
+    movies = models.ManyToManyField(Movie, blank=True)
+
+    def __str__(self):
+        return f"{self.genre}"
